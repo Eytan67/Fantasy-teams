@@ -1,9 +1,8 @@
-from functools import reduce
+
 
 
 def ATR_ratio(assists, turnovers):
     return assists / turnovers if turnovers > 0 else assists
-
 
 def PPG_ratio(points, games, position_average):
     ppg = points / games

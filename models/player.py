@@ -1,6 +1,8 @@
 from utils.analyses import ATR_ratio, PPG_ratio
 from db import db
 
+
+
 class Player(db.Model):
     __tablename__:str = 'players_data'
     id = db.Column(db.Integer, primary_key=True)
@@ -17,7 +19,21 @@ class Player(db.Model):
     PPG_ratio = db.Column(db.Float, nullable=False)
 
     def __repr__(self):
-        return '<Player %r>' % self.player_name
+        return self.to_dict()
+
+    def to_dict(self):
+        return {'name': self.player_name,
+                'player_id': self.player_id,
+                'team': self.team,
+                'position': self.position,
+                'season': self.season,
+                'points': self.points,
+                'games': self.games,
+                'two_percent': self.two_percent,
+                'three_percent': self.three_percent,
+                'ATR': self.ATR,
+                'PPG_ratio': self.PPG_ratio
+                }
 
     @classmethod
     def from_json(cls, json, position_averages):

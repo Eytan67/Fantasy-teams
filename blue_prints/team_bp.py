@@ -1,10 +1,7 @@
 from flask import Blueprint, jsonify, request
 
 
-
 team_bp = Blueprint('team', __name__)
-
-
 
 @team_bp.route('/teams', methods=['post'])
 def create_team():

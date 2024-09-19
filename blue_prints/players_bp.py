@@ -2,9 +2,8 @@ from flask import Blueprint, jsonify, request
 from services.players_service import get_players_by_position
 
 
+
 player_bp = Blueprint('player', __name__)
-
-
 
 @player_bp.route('/players', methods=['GET'])
 def get_players():

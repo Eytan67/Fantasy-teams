@@ -6,8 +6,8 @@ player_bp = Blueprint('player', __name__)
 
 
 
-@player_bp.route('/api/players', methods=['GET'])
-def get_user():
+@player_bp.route('/players', methods=['GET'])
+def get_players():
     position = request.args.get('position')
     season = request.args.get('season')
     if position is None:

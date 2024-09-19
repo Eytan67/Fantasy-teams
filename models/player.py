@@ -1,4 +1,4 @@
-from utils.analyses import assist_to_turnover_ratio, PPG_ratio
+from utils.analyses import ATR_ratio, PPG_ratio
 from db import db
 
 class Player(db.Model):
@@ -30,8 +30,8 @@ class Player(db.Model):
                         , games=json['games']
                         , two_percent=json['twoPercent']
                         , three_percent=json['threePercent']
-                        , ATR=assist_to_turnover_ratio(json['assists'], json['turnovers'])
-                        , PPG_ratio=PPG_ratio(json['points'], json['games'], position_averages['session']['position'])
+                        , ATR=ATR_ratio(json['assists'], json['turnovers'])
+                        , PPG_ratio=PPG_ratio(json['points'], json['games'], position_averages)
                         )
         return player
 
